@@ -12,4 +12,4 @@ PROFIT
 
 P.S. \
 If you want to create more than one user just launch script with argument=number users, example: \
-'./sftpcetos7 5' ---> create 5 users
+`./sftpcetos7 5` ---> create 5 users
