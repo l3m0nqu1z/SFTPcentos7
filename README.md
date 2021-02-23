@@ -4,10 +4,10 @@ Centos7(MTS) image's SFTP builder \
 Autobuilder sftp based on Centos 7 image.
 
 Script's steps \
-*updating system \
-*instaling fail2ban \
-*extending disk \
-*adding users >> STDOUT \
+- updating system \
+- instaling fail2ban \
+- extending disk \
+- adding users >> STDOUT \
 PROFIT
 
 P.S. \
