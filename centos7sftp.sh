@@ -57,9 +57,9 @@ do
 sleep 1
 adduser -d /home/sftpuser$a -s /sbin/nologin sftpuser$a -g sftpaccess 
 echo -n "Created user: sftpuser$a | password: "
-pass=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' | head -c12;)
-echo "$pass"
-echo "$pass" | passwd --stdin sftpuser$a > /dev/null 2>&1
+PASS=$(</dev/urandom tr -dc 'A-Za-z0-9#$*=' | head -c12;)
+echo "$PASS"
+echo "$PASS" | passwd --stdin sftpuser$a > /dev/null 2>&1
 chown root /home/sftpuser$a
 chmod 750 /home/sftpuser$a
 mkdir /home/sftpuser$a/uploads
