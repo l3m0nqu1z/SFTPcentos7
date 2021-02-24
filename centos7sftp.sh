@@ -16,8 +16,8 @@ fi
 echo -n 'Updating system... '
 yum update -y > /dev/null 2>&1 && echo "OK"
 fail2ban() {
-yum install epel-release -y 
-yum install fail2ban -y 
+yum install -y epel-release \ 
+               fail2ban 
 systemctl enable fail2ban
 F2B_JAIL="/etc/fail2ban/jail.d/sshd.local"
 echo "[sshd]
@@ -57,7 +57,7 @@ do
 sleep 1
 adduser -d /home/sftpuser$a -s /sbin/nologin sftpuser$a -g sftpaccess 
 echo -n "Created user: sftpuser$a | password: "
-PASS=$(</dev/urandom tr -dc 'A-Za-z0-9#$*=' | head -c12;)
+PASS=$(</dev/urandom tr -dc 'a-zA-Z0-9#$*=' | head -c12;)
 echo "$PASS"
 echo "$PASS" | passwd --stdin sftpuser$a > /dev/null 2>&1
 chown root /home/sftpuser$a
