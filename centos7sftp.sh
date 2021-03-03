@@ -16,8 +16,7 @@ fi
 echo -n 'Updating system... '
 yum update -y > /dev/null 2>&1 && echo "OK"
 fail2ban() {
-yum install -y epel-release \ 
-               fail2ban 
+yum install -y epel-release fail2ban 
 systemctl enable fail2ban
 F2B_JAIL="/etc/fail2ban/jail.d/sshd.local"
 echo "[sshd]
