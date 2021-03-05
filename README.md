@@ -7,9 +7,9 @@ Script's steps
 - updating system 
 - instaling fail2ban 
 - extending disk 
-- adding users >> STDOUT 
+- adding users >> STDOUT \
 PROFIT
 
 P.S. \
-If you want to create more than one user just launch script with argument=number users, example: \
-`./sftpcetos7 5` ---> create 5 users
+If you want to create more than one user, just launch script with an argument=number users, example: \
+`./sftpcetos7 5` ---> creates 5 users
