@@ -16,7 +16,8 @@ fi
 echo -n 'Updating system... '
 yum update -y > /dev/null 2>&1 && echo "OK"
 fail2ban() {
-yum install -y epel-release fail2ban 
+yum install -y epel-release && yum update -y
+yum install -y fail2ban 
 systemctl enable fail2ban
 F2B_JAIL="/etc/fail2ban/jail.d/sshd.local"
 echo "[sshd]
@@ -29,12 +30,9 @@ bantime = 86400" > $F2B_JAIL
 systemctl restart fail2ban
 } 
 diskextend() {
-START=$(cat /sys/block/vda/vda2/start)
-END=$(($(cat /sys/block/vda/size)-8))
-LENGTH=$(($END-$START))
-resizepart /dev/vda 2 $LENGTH
+parted -s -a opt /dev/vda "resizepart 2 100%"
 pvresize /dev/vda2
-lvextend -l +100%FREE /dev/mapper/centos-root
+lvextend -l +100%FREE /dev/centos/root
 xfs_growfs /    
 sleep 1
 } 
